@@ -57,8 +57,8 @@ bufif1 BT1(Out, EN, Op);
   // List all unused inputs to prevent warnings
 //wire _unused = &{ena, clk, rst_n, 1'b0};
 
- // assign uo_out[0] = VGND;
-  //assign uo_out[1] = VGND;
+  assign uo_out[0] = VGND;
+  assign uo_out[1] = VGND;
   assign uo_out[2] = VGND;
   assign uo_out[3] = VGND;
   assign uo_out[4] = VGND;
