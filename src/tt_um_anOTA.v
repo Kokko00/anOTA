@@ -19,46 +19,24 @@ module tt_um_anOTA (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-    
-    // Connect analog pins
-    wire Vip = ua[0];
-    wire Vin = ua[1];
-    wire Out = ua[2]; // Assign the output to the correct pin
-
-    // Logic implementation (crucially improved)
-    wire INn, INp;
-    assign INn = ~Vip; // Corrected inversion
-    assign INp = ~Vin; // Corrected inversion
-
-    wire INn_CMP, INp_CMP, CMP, EN, not_EN;
-    assign INn_CMP = ~CMP;
-    assign INp_CMP = ~CMP;
-
-    wire Op, On;
-	
-    assign Op = ~(INn | INn_CMP);  // Corrected NOR gate logic
-    assign On = ~(INp | INp_CMP);  // Corrected NOR gate logic
-
-    assign EN = Op ^ On; //XOR for the output enable
-    
-    assign not_EN = ~EN;
-    
-    //Corrected for the output
-    assign CMP = ~not_EN & Op;
 
 
-    // Output buffer
-    assign uo_out[0] = VGND; //Keep this line, you were using it incorrectly.
-    assign uo_out[1] = VGND;
-    assign uo_out[2] = Out;  // Correct assignment of the analog output
-    assign uo_out[3:7] = 0;  //  Setting unused outputs to zero
+	assign uio_out[0] = VGND;
+    assign uio_out[1] = VGND;
+    assign uio_out[2] = VGND;
+    assign uio_out[3] = VGND;
+    assign uio_out[4] = VGND;
+    assign uio_out[5] = VGND;
+    assign uio_out[6] = VGND;
+    assign uio_out[7] = VGND;
 
-    // Default configuration for input/output ports
-    assign uio_out = 0;
-    assign uio_oe = 0;
+    assign uio_oe[0] = VGND;
+    assign uio_oe[1] = VGND;
+    assign uio_oe[2] = VGND;
+    assign uio_oe[3] = VGND;
+    assign uio_oe[4] = VGND;
+    assign uio_oe[5] = VGND;
+    assign uio_oe[6] = VGND;
+    assign uio_oe[7] = VGND;
 
-
-    // Handling unused inputs (important for synthesis!)
-    wire _unused = ena & clk & rst_n; //  Use of AND to ensure always true condition.
-    
 endmodule
