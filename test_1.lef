@@ -1,0 +1,88 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO test_1
+  CLASS BLOCK ;
+  FOREIGN test_1 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 43.460 BY 54.180 ;
+  PIN Out
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 1.782000 ;
+    PORT
+      LAYER met2 ;
+        RECT 25.850 0.000 26.130 4.000 ;
+    END
+  END Out
+  PIN VGND
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 18.220 10.640 20.220 41.040 ;
+    END
+    PORT
+      LAYER met5 ;
+        RECT 5.280 18.580 37.960 20.580 ;
+    END
+  END VGND
+  PIN VPWR
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 14.520 10.640 16.520 41.040 ;
+    END
+    PORT
+      LAYER met5 ;
+        RECT 5.280 14.880 37.960 16.880 ;
+    END
+  END VPWR
+  PIN Vin
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 27.240 4.000 27.840 ;
+    END
+  END Vin
+  PIN Vip
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 23.840 4.000 24.440 ;
+    END
+  END Vip
+  PIN clk
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 0.090 0.000 0.370 4.000 ;
+    END
+  END clk
+  OBS
+      LAYER nwell ;
+        RECT 5.330 10.795 37.910 40.990 ;
+      LAYER li1 ;
+        RECT 5.520 10.795 37.720 40.885 ;
+      LAYER met1 ;
+        RECT 4.210 10.640 37.720 41.040 ;
+      LAYER met2 ;
+        RECT 4.230 4.280 26.120 40.985 ;
+        RECT 4.230 4.000 25.570 4.280 ;
+      LAYER met3 ;
+        RECT 3.990 28.240 20.210 40.965 ;
+        RECT 4.400 26.840 20.210 28.240 ;
+        RECT 3.990 24.840 20.210 26.840 ;
+        RECT 4.400 23.440 20.210 24.840 ;
+        RECT 3.990 10.715 20.210 23.440 ;
+  END
+END test_1
+END LIBRARY
+
